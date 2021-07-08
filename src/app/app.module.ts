@@ -27,6 +27,7 @@ import { DetailsRevoationComponent } from './components/details-revoation/detail
 import { UserComponent } from './components/user/user.component';
 import { ArticalComponent } from './components/artical/artical.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
+import { WorkerComponent } from './components/worker/worker.component';
 
 //import {DataViewModule} from 'primeng/dataview';
 
@@ -48,7 +49,8 @@ import { RepairsComponent } from './components/repairs/repairs.component';
     DetailsRevoationComponent,
     UserComponent,
     ArticalComponent,
-    RepairsComponent
+    RepairsComponent,
+    WorkerComponent
     ],
   imports: [
     BrowserModule,

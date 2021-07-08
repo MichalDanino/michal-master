@@ -36,7 +36,7 @@
                     <ul class="navbar-nav mr-auto w-100 justify-content-end">
                         <li class="nav-item">
                             <a style="font-size: 18px;" class="nav-link" routerLink="app-user"
-                                routerLinkActive="activeLink">
+                                routerLinkActive="SingUpUser">
                                 <!-- תוסיפי כאן קישור ברוטינג שיוביל על ידי לחיצה לדף הרישום -->
                                 Join Us
                             </a>
@@ -45,15 +45,15 @@
                                 כאן אמורה להיכנס פונקציה שבודקת האם המשתמש עכשיו הלוגין או שלא
                             כך שהוא מציג רק את אחד מהתגים הללו - על ידי תנאי נג-איף
                             -->
-                        <li *ngIf="!userLogedIn()" class="nav-item">
+                        <li  class="nav-item">
                             <a style="font-size: 18px;" class="nav-link" routerLink="app-login"
-                                routerLinkActive="activeLink">
+                                routerLinkActive="login">
                                 Login
                             </a>
                         </li>
                         <li *ngIf="userLogedIn()" class="nav-item">
                             <a style="font-size: 18px;" class="nav-link"
-                                routerLinkActive="activeLink">
+                                routerLinkActive="home">
                                 Log-out
                             </a>
                         </li>
@@ -88,9 +88,7 @@
     </div>
 
 
-
-
+<router-outlet></router-outlet>
 </body>
 
 </html>
-<router-outlet></router-outlet>
