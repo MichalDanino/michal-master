@@ -9,6 +9,7 @@ export class WorkerComponent implements OnInit {
 
   constructor() { }
 ListWorkers:Worker1[]=[]
+listFeedbake:string[]=["fff","ffff","ffff"];
   ngOnInit(): void {
   }
 
