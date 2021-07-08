@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<style>
+    #grad1 {
+        height: 18px;
+        background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
+    }
+</style>
+<body>
+    <section id="contact-map" class="section-padding" >
+        <div class="container">
+            <div class="row justify-content-center">
+               
+                <div class="col-lg-7 col-md-12 col-xs-12">
+                    <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="form-wrapper">
+
+                            <form class="form-horizontal"  (submit)="SignUpUser()" name="frm">
+                                <div class="row"> 
+                                     <!--id-->
+                                    <div class="col-md-12 form-line">
+                                       <div class="form-group">
+                                           <input type="number" class="form-control" id="id" [(ngModel)]="NewUser.IDUser"
+                                               name="id" placeholder="תעודת זהות" required
+                                               data-error="Please enter your id">
+                                           <div class="help-block with-errors"></div>
+                                       </div>
+                                   </div>
+                                    <!--name-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" [(ngModel)]="NewUser.name"
+                                                name="name" placeholder="Name" required
+                                                data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <!--email-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" [(ngModel)]="NewUser.EmailUser" 
+                                              name="email"  placeholder="Email" required data-error="Please enter your Email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                   
+                                     <!--city-->
+                                     <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="city" [(ngModel)]="NewUser.CityAdderssUser"
+                                                name="city" placeholder="עיר מגורים" required
+                                                data-error="Please enter your city">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                 
+                                  <!--Area-->
+                                  <div class="col-md-12 form-line">
+                                    <div class="form-group">
+                                        <select #myArea>
+                                            <option *ngFor="let name of NamesArea" >{{name}}</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+
+
+                                
+
+                                   
+
+                                    <div class="form-submit" style="text-align: center;">
+                                        <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in"
+                                            data-spinner-size="30" name="submit" id="submit"
+                                            style="font-family: inherit;">
+                                            <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
+                                                הכנס</span>
+                                        </button>
+                                        
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <div class="example-button-row">
+                                <label >פועל? הרשם כאן!</label>
+                                <button mat-stroked-button color="warn">הרשמה</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
