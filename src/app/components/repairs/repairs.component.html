@@ -1,0 +1,23 @@
+<body>
+    <h1>eor</h1>
+    <form class="form-horizontal"  (submit)="Scraping()" name="frm" >   
+         <div  name="ddd" class="ggg" *ngFor="let item of list">
+        <div>
+            <label>{{item.Namemain}}</label>
+        </div>
+        <div>
+            <label>{{item.Sub_name}}</label>
+        </div>
+        <div *ngFor="let i of item.material" >
+            <h4 id="{{i}}">{{i}}</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+
+                <mat-label>Favorite food</mat-label>
+                <input matInput placeholder="Ex. Pizza" id="{{i}}">
+              </mat-form-field>
+        
+        </div>
+
+    </div>
+</form>
+</body>

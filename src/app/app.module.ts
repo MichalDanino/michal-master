@@ -26,6 +26,7 @@ import {FilterPipe} from './filter.pipe';
 import { DetailsRevoationComponent } from './components/details-revoation/details-revoation.component';
 import { UserComponent } from './components/user/user.component';
 import { ArticalComponent } from './components/artical/artical.component';
+import { RepairsComponent } from './components/repairs/repairs.component';
 
 //import {DataViewModule} from 'primeng/dataview';
 
@@ -46,7 +47,8 @@ import { ArticalComponent } from './components/artical/artical.component';
     FilterPipe,
     DetailsRevoationComponent,
     UserComponent,
-    ArticalComponent
+    ArticalComponent,
+    RepairsComponent
     ],
   imports: [
     BrowserModule,
