@@ -15,9 +15,9 @@
 
 
     <!-- Header Area wrapper Starts -->
-    <header id="header-wrap">
+    <header  id="header-wrap">
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+        <nav style="background-color: black;" class="navbar navbar-expand-lg fixed-top scrolling-navbar">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -36,7 +36,7 @@
                     <ul class="navbar-nav mr-auto w-100 justify-content-end">
                         <li class="nav-item">
                             <a style="font-size: 18px;" class="nav-link" routerLink="app-user"
-                                routerLinkActive="SingUpUser">
+                                routerLink="/SingUpUser">
                                 <!-- תוסיפי כאן קישור ברוטינג שיוביל על ידי לחיצה לדף הרישום -->
                                 Join Us
                             </a>
@@ -47,13 +47,13 @@
                             -->
                         <li  class="nav-item">
                             <a style="font-size: 18px;" class="nav-link" routerLink="app-login"
-                                routerLinkActive="login">
+                                routerLink="/login">
                                 Login
                             </a>
                         </li>
                         <li *ngIf="userLogedIn()" class="nav-item">
                             <a style="font-size: 18px;" class="nav-link"
-                                routerLinkActive="home">
+                                routerLink="/home">
                                 Log-out
                             </a>
                         </li>
@@ -64,8 +64,8 @@
                         אצלי בדוגמא הפונקציה שבודקת היא 
                             userLogedIn()
                         -->
-                            <a style="font-size: 18px;" class="nav-link" routerLink=""
-                                routerLinkActive="activeLink">
+                            <a style="font-size: 18px;" class="nav-link" 
+                                routerLink="/artical">
                                 השיפוצים שלי
                             </a>
                         </li>
@@ -88,7 +88,9 @@
     </div>
 
 
-<router-outlet></router-outlet>
-</body>
 
+
+</body>
+<br/><br/>
+<router-outlet></router-outlet>
 </html>

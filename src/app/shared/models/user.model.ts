@@ -1,8 +1,8 @@
 export class User
 {
     IDUser: number
-    name: string
+    nameUser: string
     CityAdderssUser: string
-    areaUser: string
+    areaUser: number
     EmailUser: string
 }

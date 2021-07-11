@@ -1,0 +1,24 @@
+<body>
+    <h1>eor</h1>
+    <form class="form-horizontal"  (submit)="Scraping()" name="frm"  >   
+         <div  name="ddd" class="ggg" *ngFor="let item of list">
+        <div>
+            <label>{{item.Namemain}}</label>
+        </div>
+        <div>
+            <label>{{item.Sub_name}}</label>
+        </div>
+        <div *ngFor="let i of item.material" >
+            <h4 id="{{i}}">{{i}}</h4>
+           
+
+               
+                <input matInput placeholder="enter discription" (focusout)="save($event,item.Sub_name,item.Namemain,i)" id="{{i}}">
+        
+        </div>
+
+    </div>
+    <button (click)="sreach()">הצג תוצאות חיפוש</button>
+</form>
+<app-resulte *ngIf="visible" [listresultes]="listToScrap"></app-resulte>
+</body>

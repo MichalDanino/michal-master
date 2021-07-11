@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
@@ -9,6 +9,7 @@ import { WorkerService } from 'src/app/shared/services/worker.service';
 import { CheckPassword } from 'src/app/shared/validators/valid';
 import { Specialty } from 'src/app/shared/models/Specialty.model';
 import { Worker1 } from 'src/app/shared/models/Worker.model';
+import { Area } from 'src/app/shared/models/Area.model';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,7 @@ export class RegisterComponent implements OnInit {
   slash: string = "fa fa-fw fa-eye-slash field-icon toggle-password";
 
   constructor(private workerService:WorkerService , private mainService:MainService,private userService: UserService, private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) { }
-
+  @ViewChild ('myArea',{static:false}) area:ElementRef;
   ngOnInit(): void {
 
   
@@ -40,11 +41,12 @@ export class RegisterComponent implements OnInit {
   Show:boolean=false;
   worker:Worker1= new Worker1()
   specialty :Specialty= new Specialty()
-  NamesArea:string[]=[]
+  NamesArea:Area[]=[]
 
   SignUpWorker()
 {
-  console.log(this.worker)
+  let temp=this.area.nativeElement.value;
+  this.worker.Area_work=this.NamesArea.find(a=> a.AreaNAme==temp).CodeArea;
     this.workerService.SignUpWorker(this.worker).subscribe(a=> (console.log(a)));
     this.Show = true;
 }

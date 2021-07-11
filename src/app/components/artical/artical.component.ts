@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { artical } from 'src/app/shared/models/Artical.model';
+import { MainService } from 'src/app/shared/services/main.service';
 
 @Component({
   selector: 'app-artical',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artical.component.css']
 })
 export class ArticalComponent implements OnInit {
-
-  constructor() { }
+Artical:artical[]=[]
+  constructor(private MainService:MainService) { }
 
   ngOnInit(): void {
   }
-
+GetArtical(){
+this.MainService.GetArtical().subscribe(a=> {console.log(a)});
+}
 }

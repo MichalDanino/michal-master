@@ -23,11 +23,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationService } from 'primeng/api';
 import { HighlightDirective } from './highlight.directive'; // ->  imported directive
 import {FilterPipe} from './filter.pipe';
-import { DetailsRevoationComponent } from './components/details-revoation/details-revoation.component';
 import { UserComponent } from './components/user/user.component';
 import { ArticalComponent } from './components/artical/artical.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
 import { WorkerComponent } from './components/worker/worker.component';
+import { ScrapingComponent } from './components/scraping/scraping.component';
+import { ResulteComponent } from './components/resulte/resulte.component';
 
 //import {DataViewModule} from 'primeng/dataview';
 
@@ -46,11 +47,12 @@ import { WorkerComponent } from './components/worker/worker.component';
     CookbookComponent,
     HighlightDirective,
     FilterPipe,
-    DetailsRevoationComponent,
     UserComponent,
     ArticalComponent,
     RepairsComponent,
-    WorkerComponent
+    WorkerComponent,
+    ScrapingComponent,
+    ResulteComponent
     ],
   imports: [
     BrowserModule,

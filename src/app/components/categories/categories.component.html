@@ -1,75 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoies</title>
-</head>
 <style>
     #grad1 {
         height: 18px;
         background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
     }
 </style>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-4ZPLezkTZTsojWFhpdFembdzFudphhoOzIunR1wH6g1WQDzCAiPvDyitaK67mp0+" crossorigin="anonymous">
-
-<body>
-    <br><br> <br>  <br> <br>  <br> 
-
-    <form [formGroup]="SearchForm" (submit)="Continue()">
-
-        <div class="search__container">
-            <input class="search__input" type="text" placeholder="Search" aria-label="Search"
-                aria-describedby="button-addon2" formControlName="search" id="search">
-        </div>
-     <br>
-
-     <div *ngIf="Pup==true">
-        <label>איך את ה רוצה לבצע את השיפוץ?</label>
-        <div>
-        <input type="checkbox"/><h5>בעצמי!!</h5>
-    </div>
+<br/><br/><br/><br/>
+<div *ngIf="Pup==true">
+    <label>איך את ה רוצה לבצע את השיפוץ?</label>
     <div>
-        <input type="checkbox"/><h5>פועל שיעשה את העבודה!!</h5>
-    </div>
-    </div>
-    <div *ngFor="let item of listOfCategory; let j=index "  >
-            <div  (click)="Select($event, j)" class="dddd" id="{{item}}" name="caterrro">{{item}}
-    </div>
-    
-    </div>
-    
-    <button (click)="Continue()">המשך...</button>
-    
-    
+    <input type="checkbox"/><h5>בעצמי!!</h5>
+</div>
+<div>
+    <input type="checkbox"/><h5>פועל שיעשה את העבודה!!</h5>
+</div>
+</div>
+<div *ngFor="let item of listOfCategory; let j=index "  >
+        <div  (click)="checked1($event, j)" class="dddd" id="{{item}}" name="caterrro">{{item}}
+</div>
 
-      
+</div>
 
+<button (click)="Continue()">המשך...</button>
 
-        <br>
-
-        <!-- <button type="submit"
-            style="background-color:rgb(209, 113, 61) ;border-color: white; width: 100px;height:40px;border-radius: 4px;">Search</button>-->
-
-        <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" name="submit"
-            id="submit" style="font-family: inherit;">
-            <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
-                Find my recipe</span>
-        </button>
-        <div id="msgSubmit" class="h3 text-center hidden"></div>
-        <br><br><br>
-
-
-
-
-    </form>
-
-    <br>  <br> <br>  <br><br>  <br><br>  <br> <br><br>  <br><br>  <br>
-
-</body>
-
-</html>
+<button (click)="ddd()">חיחלחמ</button>

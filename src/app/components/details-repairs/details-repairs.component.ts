@@ -16,11 +16,12 @@ export class m{
    
 }
 @Component({
-  selector: 'app-details-revoation',
-  templateUrl: './details-revoation.component.html',
-  styleUrls: ['./details-revoation.component.css']
+  selector: 'app-details-repairs',
+  templateUrl: './details-repairs.component.html',
+  styleUrls: ['./details-repairs.component.css']
 })
-export class DetailsRevoationComponent implements OnInit {
+export class DetailsRepairsComponent implements OnInit {
+
   list: m[]=[];
   temp1:string[];
   temp2:string;   
@@ -31,6 +32,7 @@ export class DetailsRevoationComponent implements OnInit {
   constructor(private MatrialService:MaterialService) { 
     this.getMatrialByReno();
   }
+  Scraping(){}
 
   ngOnInit(): void {
   }
@@ -70,5 +72,4 @@ export class DetailsRevoationComponent implements OnInit {
 }}
  
     
-
 }

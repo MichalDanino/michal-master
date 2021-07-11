@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/shared/services/category.service';
+import { MaterialService } from 'src/app/shared/services/material.service';
 
 @Component({
   selector: 'app-categories',
@@ -27,7 +28,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private categoryService: CategoryService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,private materialService:MaterialService
   ) { 
     this.GetAllCategory();
   }
@@ -36,27 +37,40 @@ export class CategoriesComponent implements OnInit {
   
 
   ngOnInit(): void {
+    }
+    pupTrue(){
+      this.Pup=true;
+    }
+    GetAllCategory(){
+      this.materialService.GetNameCategory().subscribe(a=> 
+        {
+         (this.listOfCategory)=a;
+      }
+    )
+  }
+  toppings: FormGroup;
+  fff:boolean
+  categories:string=''
+  checked1(event:any,r)
+  {
     
-}
-Select(event:any,fff)
-{
+    this.selected = event.target.id;
+   this.listOfNemesRenoSelected =this.listOfNemesRenoSelected+','+this.selected;
+  }
+  ddd()
+  {console.log(this.listOfNemesRenoSelected);
+    
   
-  this.selected = event.target.id;
- this.listOfNemesRenoSelected =this.listOfNemesRenoSelected+','+this.selected;
-}
-GetAllCategory(){
-  this.categoryService.GetNameCategory().subscribe(a=> 
-    {
-    (this.listOfCategory)=a;
-})
-}
-Continue(){
-  debugger
-  sessionStorage.setItem('CategorySelected',this.listOfNemesRenoSelected);
-  this.router.navigate(['/app-scraping']);
-
+    }
+    Continue(){
+      debugger
+      sessionStorage.setItem('CategorySelected',this.listOfNemesRenoSelected);
+      this.router.navigate(['/app-Scraping']);
+  
+    }
+  
 }
 
 
-}
+
 

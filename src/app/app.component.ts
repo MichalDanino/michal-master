@@ -16,6 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.router.navigate(['/home'])
     this.color="white";
   }
 
@@ -23,7 +24,7 @@ export class AppComponent {
   userLogedIn() {
     
 
-    let user= localStorage.getItem('currentUser') != null;
+    let user= sessionStorage.getItem('IDUser') != null;
     return user;
 
   }

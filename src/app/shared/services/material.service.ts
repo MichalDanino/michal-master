@@ -3,11 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {FormsModule} from '@angular/forms'
 import { ThrowStmt } from '@angular/compiler';
+import { material } from '../models/material.model';
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
   Url ="https://localhost:44339/api/HandlingMaterials"
+  getListM():Observable<material[]>
+  {
+   return this.https.get<material[]>(`${this.Url}/GetlistMaterial`)
+  }
+  GetNameCategory():Observable<string[]>{
+    return this.https.get<string[]>(`${this.Url}/GetNameRenovation`)
+  }
 
   constructor(private https: HttpClient) { }
   getMatrialByReno(NameReno:string):Observable<Map<string,Map<string,string[] >>>

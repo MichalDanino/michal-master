@@ -7,5 +7,5 @@ export class Worker1{
     CityAddress:string
     Area_work:number
     AVGStare:Float32Array
-
+    listfeedbake:string[];
 }
