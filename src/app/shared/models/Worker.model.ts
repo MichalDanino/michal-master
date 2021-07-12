@@ -6,6 +6,6 @@ export class Worker1{
     Professional_license:number
     CityAddress:string
     Area_work:number
-    AVGStare:Float32Array
+    AVGStare:number
     listfeedbake:string[];
 }

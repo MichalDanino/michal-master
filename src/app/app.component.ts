@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   logOut() {
-    localStorage.clear();
+    sessionStorage.clear();
     this.router.navigate(['/home'])
   }
 

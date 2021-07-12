@@ -1,4 +1,5 @@
 <html>
+    <br/><br/><br/><br/><br/>
 <div *ngFor="let worker of ListWorkers">
     <!--
         תעתיקי את הדיבים האלה לכמה עובדים שאת רוצה, גם זה יכול להיות רנדומלי לפי מספר העובדים
@@ -6,15 +7,16 @@
     <label>{{worker.Name_Worker}}</label> <!--    ואת כל הפרטים שאת רוצהworker.name  כאן תכניסי את -->
     <div class="FeedBake">
         <div id="main-slide" class="carousel slide" data-ride="carousel">
+            <div style="background-color: brown;">
             <ol class="carousel-indicators">
                   <li data-target="#main-slide" data-slide-to="0" class="active">טלפון: {{worker.Pon_Worker}}</li>
-                  <li data-target="#main-slide" data-slide-to="1" class="active">מייל: </li>
-                  <li data-target="#main-slide" data-slide-to="2" class="active">רישיון עבודה:</li>
-                  <li data-target="#main-slide" data-slide-to="3" class="active">ממוצע</li>
-                </ol> 
+                  <li data-target="#main-slide" data-slide-to="1" class="active">מייל:{{worker.Email_Worker}} </li>
+                  <li data-target="#main-slide" data-slide-to="2" class="active">רישיון עבודה:{{worker.Professional_license}}</li>
+                  <li data-target="#main-slide" data-slide-to="3" class="active">ממוצע{{worker.AVGStare}}</li>
+                </ol> </div>
             <div class="carousel-inner">
 
-                <div class="carousel-item" *ngFor="let item of worker.listfeedbake">
+                <div class="carousel-item" *ngFor="let item of listfeed">
                     <div class="carousel-caption d-md-block">
                         <h1 class="wow bounceIn heading" data-wow-delay=".7s">{{item}}</h1>
                     </div>

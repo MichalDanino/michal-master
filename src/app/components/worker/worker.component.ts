@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Worker1 } from 'src/app/shared/models/Worker.model';
 @Component({
   selector: 'app-worker',
@@ -8,8 +9,15 @@ import { Worker1 } from 'src/app/shared/models/Worker.model';
 export class WorkerComponent implements OnInit {
 
   constructor() { }
-ListWorkers:Worker1[]=[]
-  ngOnInit(): void {
+ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Worker:"moshe"},
+{IdWorker:2345,AVGStare:25,Email_Worker:"zdfkvbl@ffg.com",Name_Worker:"yosef"},
+{IdWorker:234564,AVGStare:675,Email_Worker:"xzvxcx@ffg.com",Name_Worker:"chya"}]
+listfeed:string[]=["dfgfdfghnbvcf","ffghfdghnhgbfvdcfh","fgfdgfhgjnfbfvdffg","sdgfgfhgnbfvdcfgfg"] 
+ngOnInit(): void {
+  }
+  fullworker()
+  {
+
   }
 
 }
