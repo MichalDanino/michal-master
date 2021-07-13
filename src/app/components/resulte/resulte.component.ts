@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { material } from 'src/app/shared/models/material.model';
 import { Strings } from '../scraping/scraping.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { Strings } from '../scraping/scraping.component';
 export class ResulteComponent implements OnInit {
 @Input() listresultes:Strings[]=[]
   constructor() { }
-
+listMaterials:material[]=[]
   ngOnInit(): void {
   }
   

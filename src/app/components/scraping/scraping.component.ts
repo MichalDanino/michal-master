@@ -70,7 +70,7 @@ AddMaterialToList(reno:any)
        this.material.material=this.temp1;
        this.material.Sub_name=this.temp2;
        this.list.push(this.material)
-      
+      console.log(this.list);
 
              }
             }

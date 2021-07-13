@@ -1,1 +1,60 @@
-<p>resulte works!</p>
+<body>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of listMaterials">
+            <div class="about-item">
+                <!--
+                    כאן תכניסי את התמונה של החומר, כמו 
+                    material.image
+                -->
+                <img class="img-fluid" src={{material.image}} alt=""
+                    style="width: 268px; height: 268px;margin-left: 5px; margin-right: 5px;">
+                <div class="about-text">
+                    <a class="btn btn-common btn-rm"  style="color: black;">{{material.price}}</a><!-- תכניסי כאן אתכל הפרטים-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <h1>eor</h1>
+    <form class="form-horizontal"   name="frm"  >   
+         <div  name="ddd" class="ggg" *ngFor="let item of listresultes">
+        <div>
+            <label>{{item.Namemain}}</label>
+        </div>
+        <div>
+            <label>{{item.Sub_name}}</label>
+        </div>
+        <div *ngFor="let i of item.material" >
+            <h4 id="{{i}}">{{i}}</h4>
+           <div *ngFor="let materials of listMaterials">
+               <div>
+           
+                
+<label>{{materials.NameWebSide}}</label>
+<label>{{materials.BMcompany}}</label>
+<label>{{materials.BMTitle}}</label>
+<label>{{materials.BMprice}}</label>
+<label>{{materials.BMDescription}}</label>
+<label>{{materials.delivery}}</label>
+<label>{{materials.BMshop}}</label>
+<label><a url=materials.BMlinkwebSide></a></label>
+
+               
+                <img src="../../../assets/Carousel/Picturem1.jpg">
+                </div>
+        </div>
+        </div>
+
+    </div>
+    <button>הצג תוצאות חיפוש</button>
+</form> -->
+
+</body>

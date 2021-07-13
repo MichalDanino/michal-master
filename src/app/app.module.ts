@@ -11,11 +11,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
-import { CookbookComponent } from './components/cookbook/cookbook.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
+
 import { ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
 import {InputTextModule} from 'primeng/inputtext';
@@ -44,7 +44,6 @@ import { ResulteComponent } from './components/resulte/resulte.component';
     LoginComponent,
     HomeComponent,
     RecipesComponent,
-    CookbookComponent,
     HighlightDirective,
     FilterPipe,
     UserComponent,

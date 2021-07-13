@@ -38,9 +38,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     }
-    pupTrue(){
-      this.Pup=true;
-    }
+ 
     GetAllCategory(){
       this.materialService.GetNameCategory().subscribe(a=> 
         {
@@ -48,24 +46,28 @@ export class CategoriesComponent implements OnInit {
       }
     )
   }
-  toppings: FormGroup;
-  fff:boolean
-  categories:string=''
-  checked1(event:any,r)
+  
+  
+  checkedCategory(event:any,r)
   {
     
     this.selected = event.target.id;
    this.listOfNemesRenoSelected =this.listOfNemesRenoSelected+','+this.selected;
   }
-  ddd()
-  {console.log(this.listOfNemesRenoSelected);
+  WantWorker(event:any)
+  {
     
-  
-    }
+    let Temp=event.target.id;
+    if(event.target.value){
+    sessionStorage.setItem('WantWorker',Temp);
+  }
+    
+  }
     Continue(){
-      debugger
+      
       sessionStorage.setItem('CategorySelected',this.listOfNemesRenoSelected);
-      this.router.navigate(['/app-Scraping']);
+      this.Pup=true;
+
   
     }
   

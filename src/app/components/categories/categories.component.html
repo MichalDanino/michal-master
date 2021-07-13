@@ -5,21 +5,25 @@
     }
 </style>
 <br/><br/><br/><br/><br/><br/>
-<div *ngIf="Pup==true">
+<div *ngIf="Pup==true" class="pupUp">
+    <div class="pp">
     <label>איך את ה רוצה לבצע את השיפוץ?</label>
     <div>
-    <input type="checkbox"/><h5>בעצמי!!</h5>
+        <input type="checkbox" (click)="WantWorker($event)" id="NoWorker"/><h5>בעצמי!!</h5>
+    </div>
+    
+    <div>
+        <input type="checkbox" (click)="WantWorker($event)" id="yesWorker"/><h5>פועל שיעשה את העבודה!!</h5>
+    </div>
+    <a [routerLink]="['/app-Scraping']">אישור</a>
 </div>
-<div>
-    <input type="checkbox"/><h5>פועל שיעשה את העבודה!!</h5>
 </div>
-</div>
+
 <div *ngFor="let item of listOfCategory; let j=index "  >
-        <div  (click)="checked1($event, j)" class="dddd" id="{{item}}" name="caterrro">{{item}}
+        <div  (click)="checkedCategory($event, j)" class="dddd" id="{{item}}" name="caterrro">{{item}}
 </div>
 
 </div>
 
 <button (click)="Continue()">המשך...</button>
 
-<button (click)="ddd()">חיחלחמ</button>
