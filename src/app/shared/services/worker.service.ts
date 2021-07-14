@@ -19,4 +19,8 @@ export class WorkerService {
   {
     return this.https.post<number>(`${this.Url}/SingupLS`,sp)
   }
+  GetEmbedWorker(Area:string):Observable<Worker1[]>
+  {
+    return this.https.get<Worker1[]>(`${this.Url}/singinuser/${Area}`)
+  }
 }

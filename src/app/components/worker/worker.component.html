@@ -1,14 +1,90 @@
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <br /><br /><br /><br /><br />
-<div *ngFor="let worker of ListWorkers">
+<div >
+    <section id="contact-map" class="section-padding">
+        <div class="container" *ngFor="let worker of ListWorkers" style="height: auto;">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-12 col-xs-12">
+                    <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="form-wrapper"  >
+                            <form class="form-horizontal"  name="frm">
+                                <div style="text-align: right; float: right;" class="row">
+
+                                    <div name="ddd" class="ggg" >
+                                        
+                                       
+                                        <!--    ואת כל הפרטים שאת רוצהworker.name  כאן תכניסי את -->
+                                        <div style="text-align: right;" class="form-group">
+                                            <strong style="font-size: 20px;" class="wow fadeInDown"
+                                                data-wow-delay="0.4s">
+                                                {{worker.Name_Worker}}</strong>
+                                                <div class="wow fadeInDown" data-wow-delay="0.4s">
+                                            <strong style="font-size: 20px;" >
+                                                ממוצע:</strong>
+                                                <p> {{worker.AVGStare}}</p>
+                                            </div>
+                                            <div class="wow fadeInDown" data-wow-delay="0.4s">
+                                                <strong style="font-size: 20px;" >
+                                                    טלפון:</strong>
+                                                    <p> {{worker.Pon_Worker}}</p>
+                                                </div>
+                                                <div class="wow fadeInDown" data-wow-delay="0.4s">
+                                                    <strong style="font-size: 20px;" >
+                                                        מייל:</strong>
+                                                        <p>  {{worker.Email_Worker}}</p>
+                                                    </div>
+                                                    <div class="wow fadeInDown" data-wow-delay="0.4s">
+                                                        <strong style="font-size: 20px;" >
+                                                            רישיון עבודה:</strong>
+                                                            <p> {{worker.Professional_license}}</p>
+                                                        </div>
+                                           
+                                        </div>
+
+
+                                        <!-- <div class="form-submit" style="text-align: center;"> -->
+
+                                        <!-- <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in"
+                                        data-spinner-size="30" name="submit" id="submit"
+                                        style="font-family: inherit;">
+                                        <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
+                                            submit</span>
+                                    </button> 
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>-->
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- <div *ngFor="let worker of ListWorkers"> -->
     <!--
         תעתיקי את הדיבים האלה לכמה עובדים שאת רוצה, גם זה יכול להיות רנדומלי לפי מספר העובדים
     -->
-    <label>{{worker.Name_Worker}}</label>
-    <label>ממוצע{{worker.AVGStare}}</label>
+    <!-- <label>{{worker.Name_Worker}}</label>
+    <br/>
+    <label>:ממוצע  {{worker.AVGStare}}</label>
+    <br/>
     <label>טלפון: {{worker.Pon_Worker}}</label>
-    <label>ייל:{{worker.Email_Worker}} </label>
-    <label>שיון עבודה:{{worker.Professional_license}}</label>
+    <br/>
+    <label>מייל:  {{worker.Email_Worker}} </label>
+    <br/>
+    <label>שיון עבודה:{{worker.Professional_license}}</label> -->
     <!--    ואת כל הפרטים שאת רוצהworker.name  כאן תכניסי את -->
     <div class="FeedBake">
         <div id="main-slide" class="carousel slide" data-ride="carousel">
@@ -43,12 +119,12 @@
             </a>
         </div>
     </div>
-</div>
 
 
-<div>
+
+<!-- <div style="background-color: blueviolet;">
     <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
+         Indicators
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -56,7 +132,6 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <!-- <img src="http://pepiuz.altervista.org/joomla/images/1000x400/keyboard-1000x400.jpg" width='100%'> -->
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>There is a div above this carousel</h1>
@@ -65,7 +140,7 @@
                 </div>
             </div>
             <div class="item">
-                <!-- <img src="http://pepiuz.altervista.org/joomla/images/1000x400/keyboard-1000x400.jpg"> -->
+                 <img src="http://pepiuz.altervista.org/joomla/images/1000x400/keyboard-1000x400.jpg">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>There is a div above this carousel</h1>
@@ -74,7 +149,7 @@
                 </div>
             </div>
             <div class="item">
-                <!-- <img src="http://pepiuz.altervista.org/joomla/images/1000x400/keyboard-1000x400.jpg"> -->
+                <img src="http://pepiuz.altervista.org/joomla/images/1000x400/keyboard-1000x400.jpg"> 
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>There is a div above this carousel</h1>
@@ -83,15 +158,16 @@
                 </div>
             </div>
         </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        ..Controls 
+        <div style="background-color: coral;">
+        <a  class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
         </a>
-    </div>
-    <!-- <div id="layer">
+    </div></div>
+     <div id="layer">
         <div class="top-div">
             <div class="fixed-text">Fixed Text</div>
         </div>
@@ -107,8 +183,8 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
-</div>
+</div> -->
 
 </html>
