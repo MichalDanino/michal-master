@@ -17,7 +17,7 @@ export class CategoriesComponent implements OnInit {
   form: FormGroup
   selected: string;
   checked: boolean = false;
-  
+  ListImag:string[]
   selectedAllergies: number[] = []
   searchText: string;
   Pup:boolean =false;
@@ -37,6 +37,18 @@ export class CategoriesComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.Pup=false;
+    this.ListImag=[
+      "../../../assets/Category/room.jpg",
+      "../../../assets/Category/ToiletAndBath.jpg",
+      "../../../assets/Category/Bathroom.jpg",
+      "../../../assets/Category/toilet.jpg",
+      "../../../assets/Category/Flooring.jpg",
+      "../../../assets/Category/Color.jpg",
+      "../../../assets/Category/Category/window.jpg",
+      "../../../assets/Category/Tileswall.jpg"
+    ]
+    
     }
  
     GetAllCategory(){

@@ -14,5 +14,9 @@ listMaterials:material[]=[]
   ngOnInit(): void {
   }
   
+  Selected(material:material,event:any){
+
+  }
+  
 
 }

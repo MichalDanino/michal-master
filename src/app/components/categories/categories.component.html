@@ -4,26 +4,41 @@
         background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
     }
 </style>
-<br/><br/><br/><br/><br/><br/>
+<br /><br /><br /><br /><br /><br />
 <div *ngIf="Pup==true" class="pupUp">
     <div class="pp">
-    <label>איך את ה רוצה לבצע את השיפוץ?</label>
-    <div>
-        <input type="checkbox" (click)="WantWorker($event)" id="NoWorker"/><h5>בעצמי!!</h5>
+        <label>איך את ה רוצה לבצע את השיפוץ?</label>
+        <div>
+            <input type="checkbox" (click)="WantWorker($event)" id="NoWorker" />
+            <h5>בעצמי!!</h5>
+        </div>
+
+        <div>
+            <input type="checkbox" (click)="WantWorker($event)" id="yesWorker" />
+            <h5>פועל שיעשה את העבודה!!</h5>
+        </div>
+        <a [routerLink]="['/app-Scraping']">אישור</a>
     </div>
-    
-    <div>
-        <input type="checkbox" (click)="WantWorker($event)" id="yesWorker"/><h5>פועל שיעשה את העבודה!!</h5>
-    </div>
-    <a [routerLink]="['/app-Scraping']">אישור</a>
-</div>
 </div>
 
-<div *ngFor="let item of listOfCategory; let j=index "  >
+<!-- <div *ngFor="let item of listOfCategory; let j=index "  >
         <div  (click)="checkedCategory($event, j)" class="dddd" id="{{item}}" name="caterrro">{{item}}
+</div> -->
+
+
+<div class="row" style="margin-left: 10%;margin-right: 10%;" *ngIf="Pup==false">
+    <div class="col-xs-12 col-md-6 col-lg-4" *ngFor=" let item of listOfCategory; let j=index; ">
+        <div class="about-item">
+            <div style="background-image: url({{ListImag[j]}});width: 100%; height: 268px;"> 
+              
+               <input type="checkbox">
+            </div>  
+            <div class="about-text">
+                <a class="btn btn-common btn-rm" (click)="checkedCategory($event, j)" id="{{item}}" name="caterrro">{{item}}</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-</div>
 
 <button (click)="Continue()">המשך...</button>
-
