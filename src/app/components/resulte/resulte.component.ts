@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filterparmeter } from 'src/app/shared/models/FilterParmeter.model';
 import { material } from 'src/app/shared/models/material.model';
+import { MaterialService } from 'src/app/shared/services/material.service';
 import { ScrapingService } from 'src/app/shared/services/scraping.service';
 import { ScrapingComponent, Strings } from '../scraping/scraping.component';
 
@@ -18,23 +19,33 @@ Show:boolean=false;
  width :string
  Length:string
  
-  constructor(private ScrapinService:ScrapingService, private router:Router) {
+  constructor(private ScrapinService:ScrapingService, private router:Router, private MaterialSevice:MaterialService) {
    
    }
 listMaterials:material[]=[]
 ListScrapedMaterials:any[]=[]
 filter:filterparmeter;
+listfilter:filterparmeter[]=[]
 
   ngOnInit(): void {
   }
   listMaterial:material[]=[]
-  Selected(material:material,event:any){
+  Selected(event:any,material:material){
+    
+    this.filter= new filterparmeter()
     if(event.target.checked)
     {
-    this.filter.Height=+this.Height
-    this.filter.Length= +this.Length
-    this.filter.width=+ this.width
+      if(!isNaN(Number(this.Height))){
+        this.filter.Height=  Number(this.Height);
+      } 
+      if(!isNaN(Number(this.Length))){
+        this.filter.Length=  Number(this.Length);
+      } 
+      if(!isNaN(Number(this.width))){
+        this.filter.width=  Number(this.width);
+      }
     this.filter.CodRenovation=material.CodeRenovation
+    this.listfilter.push(this.filter)
     let m=material
     this.listMaterial.push(m)
   }
@@ -49,6 +60,7 @@ filter:filterparmeter;
     
 this.stop=true;
     let listSort=this.listresultes.sort((a,b)=> a.Namemain.localeCompare(b.Namemain))
+    this.ScrapinService.SendListStringsTOanalyzeTheText(listSort).subscribe(a=>{console.log(a)})
     for (let index = 0; index < this.listresultes.length; index++)
      {
           let subName = listSort[index].Sub_name; 
@@ -56,7 +68,7 @@ this.stop=true;
             {
               for (let i = 0; i < a.length; i++) 
                    {
-                     debugger
+                     
                      try{
                      a[i].CodeRenovation=listSort[index].Namemain
                     }
@@ -82,9 +94,17 @@ this.stop=true;
 
   GO()
   {
-  if(sessionStorage.getItem('WantWorker')=='yesWorker')  {
-    this.router.navigate(['/app-worker'])
-  }
+    console.log("okRetulte")
+    debugger
+    if(sessionStorage.getItem('WantWorker')=='yesWorker')  
+      {
+        this.router.navigate(['/app-worker'])
+      }
+    else
+      {
+          this.MaterialSevice.getproductCalculations(this.listfilter,this.listMaterial,null)
+      }
+
   }
 
   

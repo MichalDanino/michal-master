@@ -26,7 +26,6 @@ import { HighlightDirective } from './highlight.directive'; // ->  imported dire
 import {FilterPipe} from './filter.pipe';
 import { UserComponent } from './components/user/user.component';
 import { ArticalComponent } from './components/artical/artical.component';
-import { RepairsComponent } from './components/repairs/repairs.component';
 import { WorkerComponent } from './components/worker/worker.component';
 import { ScrapingComponent } from './components/scraping/scraping.component';
 import { ResulteComponent } from './components/resulte/resulte.component';
@@ -49,7 +48,6 @@ import { ResulteComponent } from './components/resulte/resulte.component';
     FilterPipe,
     UserComponent,
     ArticalComponent,
-    RepairsComponent,
     WorkerComponent,
     ScrapingComponent,
     ResulteComponent

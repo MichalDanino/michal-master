@@ -26,16 +26,15 @@
         <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of materials">
             <div class="about-item">
                 <div style="background-image:  url({{material.BMSrcImg}});width: 100px; height: 100px;margin-left: 5px; margin-right: 5px;">
-                <!-- <img class="img-fluid" src={{material.image}} alt=""
-                    style="width: 268px; height: 268px;margin-left: 5px; margin-right: 5px;"> -->
-                    <input type="checkbox" (click)="Selected( material, $event)">
+                    <input type="checkbox" (click)="Selected($event ,material)">
+                    <!-- <input type="checkbox"  id="chec"> -->
                 </div>
                 <hr>
                 <div class="about-text">                                  
                         <p class="btn btn-common btn-rm"  style="color: black;">{{material.BMDescription}}</p><!-- תכניסי כאן אתכל הפרטים-->
 
                      <p class="btn btn-common btn-rm"  style="color: black;">{{material.BMprice}}</p><!-- תכניסי כאן אתכל הפרטים-->
-                     <a class="btn btn-common btn-rm"  style="color: black;" href={{material.BMlinkwebSide}}>{{material.NameWebSide}}</a><!-- תכניסי כאן אתכל הפרטים-->
+                     <a class="btn btn-common btn-rm"  style="color: black;" href={{material.BMlinkwebSide}} target="_blank">{{material.NameWebSide}}</a><!-- תכניסי כאן אתכל הפרטים-->
                      <p class="btn btn-common btn-rm"  style="color: black;">{{material.delivery}}</p><!-- תכניסי כאן אתכל הפרטים-->
 
                 </div>

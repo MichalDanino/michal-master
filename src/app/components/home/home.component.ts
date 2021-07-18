@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { MainService } from 'src/app/shared/services/main.service';
 import { artical } from 'src/app/shared/models/Artical.model';
 import { environment } from 'src/environments/environment';
+import { ScrapingComponent } from '../scraping/scraping.component';
+import { ScrapingService } from 'src/app/shared/services/scraping.service';
 
 
 @Component({
@@ -39,11 +41,12 @@ export class HomeComponent implements OnInit {
   @ViewChild('para', { static: true }) para: ElementRef;
 
   listArtical:artical[]=[];
-  constructor( private modalService: NgbModal,private MainService:MainService,
+  constructor( private MainService:MainService,private ScrapingService:ScrapingService,
     @Inject(DOCUMENT) document, private router: Router) {
       
  
     }
+   
 ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Worker:"moshe"},
 {IdWorker:2345,AVGStare:25,Email_Worker:"zdfkvbl@ffg.com",Name_Worker:"yosef"},
 {IdWorker:234564,AVGStare:675,Email_Worker:"xzvxcx@ffg.com",Name_Worker:"chya"},
@@ -55,10 +58,14 @@ ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Wor
       this.router.navigate(["/category"])
   
     }
-    GETArtical()
+    getArtical()
     {
-        this.MainService.GetlistArticals().subscribe(a=> 
-          {this.listArtical= a;})
+       this.ScrapingService.scarpArtical().subscribe(a=>
+        {
+
+          this.listArtical=a;
+          console.log(this.listArtical)
+        })
     }
     ar:artical;
     SelectedArtical(Artical:artical)
@@ -67,7 +74,7 @@ ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Wor
       this.router.navigate(["/app-Artical"])
     }
   ngOnInit(): void {
-   
+    this.getArtical()
 let lisss=this.ListWorkers.sort((a,b)=> a.Name_Worker.localeCompare(b.Name_Worker)).sort((a,b)=> a.IdWorker-b.IdWorker);
 console.log(lisss);
 
