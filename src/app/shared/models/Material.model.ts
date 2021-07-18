@@ -7,9 +7,9 @@ export class material{
        BMshop :string
        delivery:string
        BMcityShop :string
-      BMavgPrice: Float32Array
        BMlinkwebSide:string
        BMSrcImg :string
-       
+       CodeRenovation:string
+       NameMatrial:string
        
 }

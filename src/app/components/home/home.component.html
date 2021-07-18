@@ -86,12 +86,13 @@
                 <div class="col-md-6 col-lg-4 col-xs-12 padding-none" *ngFor="let article of listArtical; let i = index">
                     <div class="services-item wow fadeInDown" data-wow-delay="0.6s">
                         <div style="margin-bottom: 30px;" class="icon">
-                            <img class="img-fluid" src="../../../assets/Carousel/carousel.jpg" alt="">
+                            <img class="img-fluid" src={{article.ImgSource}} alt="cfddd">
                         </div>
+                        <p>{{article.Title}}</p>
 
                         <div class="services-content">
-                            <h3><a href={{article.Link}} target="_blank"
-                                    style="font-weight:bolder;">{{article.LinkName}}</a></h3>
+                            <h3><a [routerLink]="['/register']" (click)="SelectedArtical(article)" target="_blank"
+                                    style="font-weight:bolder;">להמשך קריאה</a></h3>
                         </div>
                     </div>
                 </div>

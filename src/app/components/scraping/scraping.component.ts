@@ -21,12 +21,13 @@ export class Strings{
   styleUrls: ['./scraping.component.css']
 })
 export class ScrapingComponent implements OnInit {
-  displayedColumns = ['ticketNum', "assetID", "severity", "riskIndex", "riskValue", "ticketOpened", "lastModifiedDate", "eventType"];
   index=1;
   list: m[]=[];
   temp1:string[];
   temp2:string;   
   material:m;
+  fater=true;
+  public searchStr: string = "";
   listmaterial = new Array<material>();
   listOfNameMat:string[]=[];
    lissSubREnovation:string[]=["חלונות","אריחים לקירות","שרותים"," מקלחון","כיור ","ריצוף","צביעת קירות"]
@@ -36,27 +37,33 @@ export class ScrapingComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.visible=false;
+    sessionStorage.setItem('ChildeWorks',"false")
     this.getMatrialByReno()
   }
  
 getMatrialByReno(){
   let categories = sessionStorage.getItem('CategorySelected');
   return  this.matrialService.getMatrialByReno(categories).subscribe(m=>{
+    console.log("df");
+    console.log(m);
     (this.AddMaterialToList(m));
   }) 
 }
 
 
-Scraping(){
+childWorks(){
+
+  let h = sessionStorage.getItem('ChildeWorks')=="true";
+  return h;
   
 }
 AddMaterialToList(reno:any)
 {
-  
+  debugger
   let categories = sessionStorage.getItem('CategorySelected');
   let listTemp=categories.split(",");
-  for(this.index=1; this.index<listTemp.length;this.index++){ 
+  for(this.index=0; this.index<listTemp.length;this.index++){ 
+    try{
       let MainTitle=listTemp[this.index]
       let jjj=reno[MainTitle];
       this.lissSubREnovation.forEach(element => {
@@ -77,29 +84,22 @@ AddMaterialToList(reno:any)
        catch{
           
            }
-        });
+        });}
+        catch{}
 }}
  nnnnn:any
- s:Strings=new Strings()
 save(event,father,grendpa,name)
 {
-  this.s.Namemain=grendpa
-  this.s.Sub_name=father
-  this.s.description=event.target.value
-  this.s.material=name
-  this.listToScrap.push(this.s)
+  if(event.target.value!=""){
+  let s= new Strings();
+  s.Namemain=grendpa
+ s.Sub_name=father
+ s.description=event.target.value
+  s.material=name
+  this.listToScrap.push(s)
 }
-sreach()
-{
-  this.ScrapingService.ScrapingMAtrial(this.listToScrap).subscribe(a=>{
-    if(a==0){
-    this.sreach();}
-    else if(a==1)
-    {
-      this.visible=true
-    }
+  console.log(this.listToScrap)
 
-  })
-  
 }
+
 }

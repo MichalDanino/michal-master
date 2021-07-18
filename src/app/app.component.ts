@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['/app-worker'])
+    this.router.navigate(['/home'])
     this.color="white";
   }
 

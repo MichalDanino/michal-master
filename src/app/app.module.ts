@@ -15,6 +15,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
+import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';
 
 import { ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
@@ -66,7 +67,8 @@ import { ResulteComponent } from './components/resulte/resulte.component';
     BrowserAnimationsModule,
     DataViewModule,
     InputTextModule,
-    NgbModule
+    NgbModule,
+    Ng2CustomCarouselModule
   ],
   
   providers: [ CategoryService, UserService,ConfirmationService],

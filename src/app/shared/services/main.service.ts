@@ -17,8 +17,13 @@ export class MainService {
     return this.https.get<Area[]>(`${this.Url}/getnamearea`)
 
   }
-  GetArtical():Observable<artical[]>
+  GetlistArticals():Observable<artical[]>
   {
-    return this.https.get<artical[]>(`${this.Url}/getartical`);
+    return this.https.get<artical[]>(`${this.Url}/getarticals`);
   }
+  GetArtical(Title:string):Observable<artical>{
+    return this.https.get<artical>(`${this.Url}/getartical/${Title}`)
+  }
+ 
+
 }

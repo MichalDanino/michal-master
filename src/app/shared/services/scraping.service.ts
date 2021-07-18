@@ -9,14 +9,15 @@ import { material } from '../models/material.model';
 })
 export class ScrapingService {
   Url ="https://localhost:44339/api/handlingmaterials"
-
+ //Url2 = "https://localhost:44339/api/"
   constructor(private https: HttpClient) { }
 //Sends a description to scraping
-  ScrapingMAtrial(LineToSeach:Strings[]):Observable<number>{
+  ScrapingMatrial(LineToSeach:String):Observable<material[]>{
    console.log(LineToSeach);
-    return this.https.get<number>(`${this.Url}/scrapmaterial/${LineToSeach}`)
+    return this.https.get<material[]>(`${this.Url}/scrapmaterial/${LineToSeach}`)
 
   }
+  
 //get Resulte of scrping
   GetMaterials():Observable<material[]>
   {

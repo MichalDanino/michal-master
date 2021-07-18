@@ -1,12 +1,12 @@
 <body>
-    <div >
+    <div *ngIf="!childWorks()">
         <section id="contact-map" class="section-padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-12 col-xs-12">
                         <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
                             <div class="form-wrapper">
-                                <form class="form-horizontal" (submit)="Scraping()" name="frm">
+                                <form class="form-horizontal" name="frm">
                                     <div style="text-align: right; float: right;" class="row">
 
                                         <div name="ddd" class="ggg" *ngFor="let item1 of list">
@@ -23,25 +23,15 @@
                                                     class="wow fadeInDown" data-wow-delay="0.4s">
                                                     {{idr}}</p>
                                                 <input matinput="" placeholder="enter discription"
-                                                    (focusout)="save($event,item1.Sub_name,item1.Namemain,1)">
+                                                (change)="save($event,item1.Sub_name,item1.Namemain,1)">
                                             </div></div>
 
 
-                                            <!-- <div class="form-submit" style="text-align: center;"> -->
-
-                                            <!-- <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in"
-                                            data-spinner-size="30" name="submit" id="submit"
-                                            style="font-family: inherit;">
-                                            <span class="ladda-label"><i class="fa fa-check" aria-hidden="true"></i>
-                                                submit</span>
-                                        </button> 
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>-->
-                                            <!-- </div> -->
+                                     
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30"
-                                        (click)="sreach()">הצג תוצאות חיפוש</button>
+                                   
                                 </form>
                             </div>
                         </div>
@@ -72,5 +62,5 @@
     </div>
     <button (click)="sreach()">הצג תוצאות חיפוש</button>
 </form> -->
-    <app-resulte *ngIf="visible" [listresultes]="listToScrap"></app-resulte>
+    <app-resulte  [listresultes]="listToScrap"></app-resulte>
 </body>

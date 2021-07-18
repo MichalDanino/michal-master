@@ -12,8 +12,9 @@ Artical:artical[]=[]
   constructor(private MainService:MainService) { }
 
   ngOnInit(): void {
+
   }
 GetArtical(){
-this.MainService.GetArtical().subscribe(a=> {console.log(a)});
+    this.MainService.GetArtical(sessionStorage.getItem('Artical')).subscribe(a=> {console.log(a)});
 }
 }

@@ -1,59 +1,57 @@
 <body>
 
-
-    <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of listMaterials">
+    <button class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" (click)="SendToScrap()">הצג תוצאות חיפוש</button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="resultScrap" *ngIf="Show==true" >
+    <div class="row" *ngFor="let materials of ListScrapedMaterials;" >
+        <strong>{{materials[0].CodeRenovation}}</strong>
+        <p>{{materials[0].BMTitle}}</p>
+        <br/><br/><br/>
+        <div style="display: flex; max-height: 10px;">
+        <label>גובה</label>
+        <input type="text" [(ngModel)]="Height">
+        <br/>
+        <label>אורך</label>
+        <input type="text" [(ngModel)]="Length"><br>
+        <label>רוחב</label>
+        <input type="text"[(ngModel)]="width"style="max-width: 50px; " ></div>
+        <br/>
+        <br/>
+        <hr>
+        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of materials">
             <div class="about-item">
-                <div style="background-image:  url({{material.image}});width: 268px; height: 268px;margin-left: 5px; margin-right: 5px;">
+                <div style="background-image:  url({{material.BMSrcImg}});width: 100px; height: 100px;margin-left: 5px; margin-right: 5px;">
                 <!-- <img class="img-fluid" src={{material.image}} alt=""
                     style="width: 268px; height: 268px;margin-left: 5px; margin-right: 5px;"> -->
-                    <input type="checkbox" checked="Selected( material, $event)">
+                    <input type="checkbox" (click)="Selected( material, $event)">
                 </div>
-                <div class="about-text">
-                    <a class="btn btn-common btn-rm"  style="color: black;">{{material.price}}</a><!-- תכניסי כאן אתכל הפרטים-->
+                <hr>
+                <div class="about-text">                                  
+                        <p class="btn btn-common btn-rm"  style="color: black;">{{material.BMDescription}}</p><!-- תכניסי כאן אתכל הפרטים-->
+
+                     <p class="btn btn-common btn-rm"  style="color: black;">{{material.BMprice}}</p><!-- תכניסי כאן אתכל הפרטים-->
+                     <a class="btn btn-common btn-rm"  style="color: black;" href={{material.BMlinkwebSide}}>{{material.NameWebSide}}</a><!-- תכניסי כאן אתכל הפרטים-->
+                     <p class="btn btn-common btn-rm"  style="color: black;">{{material.delivery}}</p><!-- תכניסי כאן אתכל הפרטים-->
+
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-    <!-- <h1>eor</h1>
-    <form class="form-horizontal"   name="frm"  >   
-         <div  name="ddd" class="ggg" *ngFor="let item of listresultes">
-        <div>
-            <label>{{item.Namemain}}</label>
+</div>
+    <div class="load"  *ngIf="stop == true">
+        <div class="paint">
+          <div class="stroke"></div>
+          <h1>Loading...</h1>
         </div>
-        <div>
-            <label>{{item.Sub_name}}</label>
+        <div class="roller">
+          <div class="roller-top"></div>
+          <div class="roller-handle"></div>
         </div>
-        <div *ngFor="let i of item.material" >
-            <h4 id="{{i}}">{{i}}</h4>
-           <div *ngFor="let materials of listMaterials">
-               <div>
-           
-                
-<label>{{materials.NameWebSide}}</label>
-<label>{{materials.BMcompany}}</label>
-<label>{{materials.BMTitle}}</label>
-<label>{{materials.BMprice}}</label>
-<label>{{materials.BMDescription}}</label>
-<label>{{materials.delivery}}</label>
-<label>{{materials.BMshop}}</label>
-<label><a url=materials.BMlinkwebSide></a></label>
-
-               
-                <img src="../../../assets/Carousel/Picturem1.jpg">
-                </div>
-        </div>
-        </div>
-
-    </div>
-    <button>הצג תוצאות חיפוש</button>
-</form> -->
-
+      </div>
+<button (click)="GO()" >אישור</button>
 </body>

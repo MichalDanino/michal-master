@@ -21,7 +21,8 @@ NamesArea:Area[]=[];
   }
   GetNameArea()
   {
-    this.MainService.GetNameArea().subscribe(a=>{(this.NamesArea)=a});
+    this.MainService.GetNameArea().subscribe(a=>{(this.NamesArea)=a
+    console.log(a)});
   }
   SignUpUser()
   {
