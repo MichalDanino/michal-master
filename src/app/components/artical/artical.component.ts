@@ -9,13 +9,15 @@ import { ScrapingService } from 'src/app/shared/services/scraping.service';
   styleUrls: ['./artical.component.css']
 })
 export class ArticalComponent implements OnInit {
-Artical:artical[]=[]
+Artical:artical;
   constructor(private ScrapingServic:ScrapingService) { }
 
   ngOnInit(): void {
-
+    this.GetArtical()
   }
 GetArtical(){
-    this.ScrapingServic.GetSpecificArtical(sessionStorage.getItem('Artical')).subscribe(a=> {console.log(a)});
+    this.ScrapingServic.GetSpecificArtical(sessionStorage.getItem('Artical')).subscribe(a=> {console.log(a)
+    this.Artical=new artical();
+      this.Artical=a;});
 }
 }

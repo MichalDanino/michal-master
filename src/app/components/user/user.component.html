@@ -27,16 +27,16 @@
                                     <div class="col-md-12 form-line">
                                        <div class="form-group">
                                            <input type="number" class="form-control" id="id" [(ngModel)]="NewUser.IDUser"
-                                               name="id" placeholder="תעודת זהות" required
-                                               data-error="Please enter your id">
-                                           <div class="help-block with-errors"></div>
+                                               name="id" placeholder="תעודת זהות" #userID="ngModel" required ngbTooltip="מספר שגוי" triggers="click:blur"  tooltipClass="tooltip" minlength="9"  maxlength="9">
+                                               <span class="error" *ngIf="userID.errors!=null && userID.errors.required && userID.touched">שדה חובה</span>
+
                                        </div>
                                    </div>
                                     <!--name-->
                                     <div class="col-md-12 form-line">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="name" [(ngModel)]="NewUser.nameUser"
-                                                name="name" placeholder="Name" required
+                                                name="name" placeholder="Name" #name="ngModel" name required
                                                 data-error="Please enter your name">
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -45,8 +45,10 @@
                                     <div class="col-md-12 form-line">
                                         <div class="form-group">
                                             <input type="email" class="form-control" id="email" [(ngModel)]="NewUser.EmailUser" 
-                                              name="email"  placeholder="Email" required data-error="Please enter your Email">
-                                            <div class="help-block with-errors"></div>
+                                              name="email"  placeholder="Email"  #email="ngModel" email required>
+                                              <span class="error" *ngIf="email.errors!=null && email.errors.required && email.touched" >שדה חובה</span>
+                                              <span class="error" *ngIf="email.errors!=null && email.errors.email && email.touched"> פורמט שגוי</span>
+                                   
                                         </div>
                                     </div>
                                    

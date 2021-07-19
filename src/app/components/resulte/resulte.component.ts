@@ -31,7 +31,7 @@ listfilter:filterparmeter[]=[]
   }
   listMaterial:material[]=[]
   Selected(event:any,material:material){
-    
+    debugger
     this.filter= new filterparmeter()
     if(event.target.checked)
     {
@@ -44,6 +44,7 @@ listfilter:filterparmeter[]=[]
       if(!isNaN(Number(this.width))){
         this.filter.width=  Number(this.width);
       }
+      debugger
     this.filter.CodRenovation=material.CodeRenovation
     this.listfilter.push(this.filter)
     let m=material
@@ -57,28 +58,37 @@ listfilter:filterparmeter[]=[]
   }
   SendToScrap()
   {
-    
+    debugger
 this.stop=true;
     let listSort=this.listresultes.sort((a,b)=> a.Namemain.localeCompare(b.Namemain))
     this.ScrapinService.SendListStringsTOanalyzeTheText(listSort).subscribe(a=>{console.log(a)})
-    for (let index = 0; index < this.listresultes.length; index++)
+    debugger
+    for (let index = 0; index < listSort.length; index++)
      {
-          let subName = listSort[index].Sub_name; 
+       debugger
+          let subName =  listSort[index].Sub_name
+          console.log("שם המוצר:")
+          console.log(subName)
           this.ScrapinService.ScrapingMatrial(subName+" "+listSort[index].description+" "+"שיפוץ").subscribe(a=> 
             {
+
               for (let i = 0; i < a.length; i++) 
                    {
-                     
+                     console.log(listSort[index].Namemain)
                      try{
-                     a[i].CodeRenovation=listSort[index].Namemain
+                     a[i].CodeRenovation=listSort[index].Sub_name
                     }
-                    catch{}
+                    catch{
+                      a[i].CodeRenovation=listSort[index].Sub_name
+                    }
+                    a[i].NameMatrial=listSort[index].material;
                    }
               this.ListScrapedMaterials.push(Array.from(Object.values(a)));
               console.log("jhvc")
                console.log(a);
+              
                if(index==(this.listresultes.length-1))
-               {
+               { console.log(  this.ListScrapedMaterials)
                  this.stop = false;
                }
              })
@@ -102,9 +112,8 @@ this.stop=true;
       }
     else
       {
-          this.MaterialSevice.getproductCalculations(this.listfilter,this.listMaterial,null)
-      }
-
+          this.MaterialSevice.getproductCalculations(this.listfilter).subscribe(a=> {console.log(a)})     }
+          this.MaterialSevice.getproductCalculations2(this.listMaterial).subscribe(a=> {console.log(a)})
   }
 
   

@@ -23,7 +23,7 @@
         <br/>
         <br/>
         <hr>
-        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of materials">
+        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let material of materials;">
             <div class="about-item">
                 <div style="background-image:  url({{material.BMSrcImg}});width: 100px; height: 100px;margin-left: 5px; margin-right: 5px;">
                     <input type="checkbox" (click)="Selected($event ,material)">

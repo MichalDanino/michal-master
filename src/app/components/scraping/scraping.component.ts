@@ -90,6 +90,7 @@ AddMaterialToList(reno:any)
  nnnnn:any
 save(event,father,grendpa,name)
 {
+  debugger
   if(event.target.value!=""){
   let s= new Strings();
   s.Namemain=grendpa
@@ -98,6 +99,7 @@ save(event,father,grendpa,name)
   s.material=name
   this.listToScrap.push(s)
 }
+console.log("this.listToScrap")
   console.log(this.listToScrap)
 
 }

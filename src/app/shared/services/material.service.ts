@@ -23,9 +23,15 @@ export class MaterialService {
   {
 return this.https.get<Map<string,Map<string,string[] >>>(this.Url+"/GetNmaeByRevo/"+NameReno)
   }
-  getproductCalculations(listFilter:filterparmeter[],listMaterial:material[],listWorkers:Worker[]):Observable<number>
+  getproductCalculations(listFilter:filterparmeter[]):Observable<number>
   {
     console.log("servix")
-      return this.https.post<number>(`${this.Url}/productCalculations`,{listFilter,listMaterial,listWorkers})
+      return this.https.post<number>(`${this.Url}/productCalculations`,listFilter)
+  }
+  
+  getproductCalculations2(listFilter:material[]):Observable<number>
+  {
+    console.log("servix")
+      return this.https.post<number>(`${this.Url}/productCalculations2`,listFilter)
   }
 }

@@ -70,7 +70,7 @@ ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Wor
     ar:artical;
     SelectedArtical(Artical:artical)
     {
-      sessionStorage.setItem('Artical', Artical.Title);
+      sessionStorage.setItem('Artical', Artical.IdArtical.toString());
       this.router.navigate(["/app-Artical"])
     }
   ngOnInit(): void {
