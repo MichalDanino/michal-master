@@ -44,14 +44,11 @@
                         </div>
                         <br>
                         <div style="text-align: right;" class="form-group">
+                            <input type="checkbox" (click)="SaveWorker($event,worker)">
                             <strong style="font-size: 20px;" class="wow fadeInDown"
                                 data-wow-delay="0.4s">
                                 {{worker.Name_Worker}}</strong>
-                            <div class="wow fadeInDown" data-wow-delay="0.4s">
-                                <strong style="font-size: 20px;">
-                                    ממוצע:</strong>
-                                <p> {{worker.AVGStare}}</p>
-                            </div>
+                           
                             <div class="wow fadeInDown" data-wow-delay="0.4s">
                                 <strong style="font-size: 20px;">
                                     טלפון:</strong>
@@ -69,7 +66,7 @@
                             </div>
 
                         </div>
-                       
+                       <a (click)="CostWorkers()">חישוב סופי</a>
                     </div>
                 </div>
             </div>

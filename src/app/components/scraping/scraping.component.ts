@@ -26,6 +26,7 @@ export class ScrapingComponent implements OnInit {
   temp1:string[];
   temp2:string;   
   material:m;
+  KindeFloor:string=""
   fater=true;
   public searchStr: string = "";
   listmaterial = new Array<material>();
@@ -33,6 +34,8 @@ export class ScrapingComponent implements OnInit {
    lissSubREnovation:string[]=["חלונות","אריחים לקירות","שרותים"," מקלחון","כיור ","ריצוף","צביעת קירות"]
    listToScrap:Strings[]=[]
    visible:boolean;
+   listMainMaterial:Strings[]=[]
+   Floor:string="ריצוף"
   constructor(private matrialService:MaterialService ,private router:Router,private ScrapingService:ScrapingService) {}
   
 
@@ -87,21 +90,47 @@ AddMaterialToList(reno:any)
         });}
         catch{}
 }}
- nnnnn:any
+
 save(event,father,grendpa,name)
 {
   debugger
+  
   if(event.target.value!=""){
   let s= new Strings();
   s.Namemain=grendpa
  s.Sub_name=father
- s.description=event.target.value
+ s.description=this.KindeFloor!=""? event.target.value+" "+this.KindeFloor:event.target.value
+ if(!isNaN(Number(name)))
+ {
+  s.material=father;
+  this.listMainMaterial.push(s)
+ }
+ else{
   s.material=name
+}
   this.listToScrap.push(s)
 }
 console.log("this.listToScrap")
   console.log(this.listToScrap)
 
 }
+SaveKingReno(event:any)
+{
+  debugger
+  let reno = event.target.id
+  let text = event.target.value
+  console.log(reno)
+  this.listMainMaterial.forEach(a=>
+    {
+      if(a.Sub_name==reno)
+      {
+        a.description= a.description+" "+text
+        
+      }
+     
+     console.log(a.description)
+    })
+}
+
 
 }

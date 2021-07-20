@@ -8,7 +8,7 @@ import { LoginService } from './shared/services/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Recipeze';
+  title = 'EasyToFix';
   isLogin: any;
   color:any;
   constructor(private loginService: LoginService, private router:Router) {

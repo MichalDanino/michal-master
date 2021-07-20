@@ -13,11 +13,14 @@ import { ScrapingComponent, Strings } from '../scraping/scraping.component';
 })
 export class ResulteComponent implements OnInit {
 @Input() listresultes:Strings[]=[]
+@Input() listMainMaterial:Strings[]=[]
+
 stop: boolean = false;
 Show:boolean=false;
  Height:string;
  width :string
  Length:string
+ count:string
  
   constructor(private ScrapinService:ScrapingService, private router:Router, private MaterialSevice:MaterialService) {
    
@@ -26,7 +29,6 @@ listMaterials:material[]=[]
 ListScrapedMaterials:any[]=[]
 filter:filterparmeter;
 listfilter:filterparmeter[]=[]
-
   ngOnInit(): void {
   }
   listMaterial:material[]=[]
@@ -35,17 +37,25 @@ listfilter:filterparmeter[]=[]
     this.filter= new filterparmeter()
     if(event.target.checked)
     {
-      if(!isNaN(Number(this.Height))){
-        this.filter.Height=  Number(this.Height);
-      } 
-      if(!isNaN(Number(this.Length))){
-        this.filter.Length=  Number(this.Length);
-      } 
-      if(!isNaN(Number(this.width))){
-        this.filter.width=  Number(this.width);
-      }
+      
+        this.filter.Height= !isNaN(Number(this.Height))?Number(this.Height) :0
+       
+      
+     
+        this.filter.Length=!isNaN(Number(this.Length))?  Number(this.Length):0;
+       
+      
+        this.filter.width= !isNaN(Number(this.width))? Number(this.width):0;
+      
+     
+        this.filter.count=!isNaN(Number(this.count))?  Number(this.count):0;
+        this.Height="";
+        this.Length="";
+        this.width="";
+        this.count="";
       debugger
     this.filter.CodRenovation=material.CodeRenovation
+    this.filter.Price=material.BMprice.toString()
     this.listfilter.push(this.filter)
     let m=material
     this.listMaterial.push(m)
@@ -58,10 +68,11 @@ listfilter:filterparmeter[]=[]
   }
   SendToScrap()
   {
-    debugger
+    
 this.stop=true;
+debugger
     let listSort=this.listresultes.sort((a,b)=> a.Namemain.localeCompare(b.Namemain))
-    this.ScrapinService.SendListStringsTOanalyzeTheText(listSort).subscribe(a=>{console.log(a)})
+    this.ScrapinService.SendListStringsTOanalyzeTheText(this.listMainMaterial).subscribe(a=>{console.log(a)})
     debugger
     for (let index = 0; index < listSort.length; index++)
      {
@@ -106,16 +117,17 @@ this.stop=true;
   {
     console.log("okRetulte")
     debugger
-    if(sessionStorage.getItem('WantWorker')=='yesWorker')  
+    this.MaterialSevice.getproductCalculations(this.listfilter).subscribe(a=> {
+      sessionStorage.setItem('CostMaterial',a.toString())
+    })     
+    this.MaterialSevice.getproductCalculations2(this.listMaterial).subscribe(a=> {sessionStorage.setItem('CostMaterial',a.toString())})
+
+    if(sessionStorage.getItem('WantWorker')=='yesWorker' )  
       {
         this.router.navigate(['/app-worker'])
       }
-    else
-      {
-          this.MaterialSevice.getproductCalculations(this.listfilter).subscribe(a=> {console.log(a)})     }
-          this.MaterialSevice.getproductCalculations2(this.listMaterial).subscribe(a=> {console.log(a)})
-  }
-
+    
+          }
   
 
 }

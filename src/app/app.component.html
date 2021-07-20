@@ -53,11 +53,16 @@
                         </li>
                         <li *ngIf="userLogedIn()" class="nav-item">
                             <a style="font-size: 18px;" class="nav-link"
-                                routerLink="/home">
+                                routerLink="/home" (click)="logOut()">
                                 Log-out
                             </a>
                         </li>
-                        
+                        <li *ngIf="userLogedIn()" class="nav-item">
+                            <a style="font-size: 18px;" class="nav-link"
+                                routerLink="/home">
+                                home
+                            </a>
+                        </li>
                         <li *ngIf="userLogedIn()" class="nav-item">
                             <!-- כאן גם כן תוסיפי קישור לקומפוננטנה של השיפצים שלי, וגם כאן תקשרי לבדיקה שיופיע רק אם קיים - הכל דרך
                             הרוטינג והפונקציה שבודקת לוגים של משתמש

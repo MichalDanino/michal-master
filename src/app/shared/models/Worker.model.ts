@@ -7,5 +7,6 @@ export class Worker1{
     CityAddress:string
     Area_work:number
     AVGStare:number
+    amountDay:number
     Feedbacks:string[];
 }

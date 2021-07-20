@@ -29,9 +29,9 @@ return this.https.get<Map<string,Map<string,string[] >>>(this.Url+"/GetNmaeByRev
       return this.https.post<number>(`${this.Url}/productCalculations`,listFilter)
   }
   
-  getproductCalculations2(listFilter:material[]):Observable<number>
+  getproductCalculations2(listMaterial:material[]):Observable<number>
   {
     console.log("servix")
-      return this.https.post<number>(`${this.Url}/productCalculations2`,listFilter)
+      return this.https.post<number>(`${this.Url}/productCalculations2`,listMaterial)
   }
 }

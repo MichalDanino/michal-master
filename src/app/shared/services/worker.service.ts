@@ -23,4 +23,5 @@ export class WorkerService {
   {
     return this.https.get<Worker1[]>(`${this.Url}/EmbedWorker/${idWorker}`)
   }
+  
 }

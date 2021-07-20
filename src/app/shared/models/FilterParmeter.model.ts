@@ -5,7 +5,7 @@ export class filterparmeter{
       width :number
      Length :number
      count:number
-     Price :number 
+     Price :string 
      SeaechLine:string
     
      

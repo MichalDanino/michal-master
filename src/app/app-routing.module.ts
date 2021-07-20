@@ -2,9 +2,9 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticalComponent } from './components/artical/artical.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ConclusionComponent } from './components/conclusion/conclusion.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResulteComponent } from './components/resulte/resulte.component';
 import { ScrapingComponent } from './components/scraping/scraping.component';
@@ -23,7 +23,8 @@ const routes: Routes = [
   {path:'app-Scraping', component:ScrapingComponent},
   {path:'app-worker', component:WorkerComponent},
   {path:'app-Artical', component:ArticalComponent},
-  {path:'result', component:ResulteComponent}
+  {path:'result', component:ResulteComponent},
+  {path:'conclusion', component:ConclusionComponent}
    //{ path: '**', component: PageNotFoundComponent }
   //,treatSens - add it to the path, to send also the sensitive
 ];

@@ -14,8 +14,9 @@ export class ScrapingService {
   constructor(private https: HttpClient) { }
 //Sends a description to scraping
   ScrapingMatrial(LineToSeach:String):Observable<material[]>{
+    debugger
    console.log(LineToSeach);
-    return this.https.get<material[]>(`${this.Url}/scrapmaterial/${LineToSeach}`)
+    return this.https.get<material[]>(`${this.Url}/scrapmaterial/${LineToSeach.toString()}`)
 
   }
   

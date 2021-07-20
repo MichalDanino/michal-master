@@ -21,6 +21,11 @@ body{
   overflow: hidden;
   animation: animate-paint 10s ease-in-out infinite alternate;
 }
+.titleResulte
+{
+  text-align: center;
+  color: indianred;
+}
 
 .stroke, .stroke:before, .stroke:after {
   position: absolute;

@@ -55,7 +55,10 @@ ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Wor
 
     GoToCategory()
     {
+      if(sessionStorage.getItem('IDUser') != null)
       this.router.navigate(["/category"])
+      else
+      alert("היי, \nשכחת להרשם :(\n אז קדימה עשה זאת ונתחיל!")
   
     }
     getArtical()
@@ -78,4 +81,6 @@ ListWorkers=[{IdWorker:22223333,AVGStare:233,Email_Worker:"aaa@ffg.com",Name_Wor
 let lisss=this.ListWorkers.sort((a,b)=> a.Name_Worker.localeCompare(b.Name_Worker)).sort((a,b)=> a.IdWorker-b.IdWorker);
 console.log(lisss);
 
-}}
+}
+
+}

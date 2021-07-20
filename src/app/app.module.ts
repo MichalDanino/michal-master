@@ -10,7 +10,6 @@ import { UserService } from './shared/services/user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
@@ -29,6 +28,8 @@ import { ArticalComponent } from './components/artical/artical.component';
 import { WorkerComponent } from './components/worker/worker.component';
 import { ScrapingComponent } from './components/scraping/scraping.component';
 import { ResulteComponent } from './components/resulte/resulte.component';
+import { PreviousChoicesComponent } from './components/previous-choices/previous-choices.component';
+import { ConclusionComponent } from './components/conclusion/conclusion.component';
 
 //import {DataViewModule} from 'primeng/dataview';
 
@@ -43,14 +44,15 @@ import { ResulteComponent } from './components/resulte/resulte.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    RecipesComponent,
     HighlightDirective,
     FilterPipe,
     UserComponent,
     ArticalComponent,
     WorkerComponent,
     ScrapingComponent,
-    ResulteComponent
+    ResulteComponent,
+    PreviousChoicesComponent,
+    ConclusionComponent
     ],
   imports: [
     BrowserModule,

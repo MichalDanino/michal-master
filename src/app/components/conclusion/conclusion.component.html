@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="script" href="code.js">
+</head>
+<style>
+  #grad1 {
+    height: 18px;
+    background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
+  }
+</style>
+
+<body>
+
+<br><br><br>
+  <!-- Contact Us Section -->
+  <section id="contact-map" class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="section-title-header text-center">
+           
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-xs-12">
+          <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
+            <div class="form-wrapper">
+              <form class="form-horizontal" data-toggle="validator">
+                <div class="row">
+
+                  <div class="col-md-12 form-line">
+                    <div class="form-group">
+                     <strong style="text-align: center;">עלות חומרים:</strong>
+                     <br/>
+                     <h4>{{CostMatrials}}</h4>
+                     <br/>
+                     <strong style="text-align: center;">עלות בעל מקצוע:</strong>
+                     <br/>
+                     <h4>{{CostWorker}}</h4>
+                     <br/>
+                     <strong style="text-align: center;">עלות כללית:</strong>
+                     <br/>
+                     <h4>{{GeneralCost}}</h4>
+                     
+                    </div>
+                  </div>
+
+                 
+
+                  <div class="form-submit" style="text-align: center;">
+                    <button type="submit" class="btn btn-common" id="form-submit"> הירשם</button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                  </div>
+                  <div>
+                    <br><br>
+                   
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section End -->
+
+
+
+  <br>
+
+</body>
+
+</html>

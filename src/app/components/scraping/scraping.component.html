@@ -1,66 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
 <body>
     <div *ngIf="!childWorks()">
-        <section id="contact-map" class="section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-12 col-xs-12">
-                        <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
-                            <div class="form-wrapper">
-                                <form class="form-horizontal" name="frm">
-                                    <div style="text-align: right; float: right;" class="row">
-
-                                        <div name="ddd" class="ggg" *ngFor="let item1 of list">
-
-                                            <div style="text-align: right;" class="form-group">
-                                                <strong style="font-size: 20px;" class="wow fadeInDown"
-                                                    data-wow-delay="0.4s">
-                                                    {{item1.Namemain}}</strong>
-                                                <strong style="font-size: 20px;" class="wow fadeInDown"
-                                                    data-wow-delay="0.4s">
-                                                    {{item1.Sub_name}}</strong>
-                                                    <div *ngFor="let idr of item1.material">
-                                                <p  style="font-size: 20px;"
-                                                    class="wow fadeInDown" data-wow-delay="0.4s">
-                                                    {{idr}}</p>
-                                                <input matinput="" placeholder="enter discription"
-                                                (change)="save($event,item1.Sub_name,item1.Namemain,idr)">
-                                            </div></div>
+        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let item1 of list" style="display: flex;flex-direction: row;">
+            <div class="about-item">
+                <form class="form-horizontal" name="frm">
+                    <div style="text-align: right; float: right;" class="row">
 
 
-                                     
-                                        </div>
-                                    </div>
 
-                                   
-                                </form>
+                        <div style="text-align: right;" class="form-group">
+                            <strong style="font-size: 20px; color: indianred;" class="wow fadeInDown"
+                                data-wow-delay="0.4s">
+                                {{item1.Namemain}}</strong>
+                            <br />
+                            <strong style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
+                                {{item1.Sub_name}}</strong>
+                            <br />
+                            <div>
+                                <input (change)="save($event,item1.Sub_name,item1.Namemain,1)">
+                                <br />
+                                <p *ngIf="item1.Sub_name==Floor" style="color: red;">:הכנס את סוג שיפוץ
+                                    הריצוף שהינך רוצה לעשות</p>
+
+                                <input type="text" placeholder="הדבקה/חדש/פירוק" (change)="SaveKingReno($event)"
+                                    *ngIf="item1.Sub_name==Floor" name="df" id="{{item1.Sub_name}}">
+                            </div><br />
+                            <div *ngFor="let idr of item1.material">
+                                <p style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
+                                    {{idr}}</p>
+                                <input type="text" matinput="" placeholder="enter discription"
+                                    (change)="save($event,item1.Sub_name,item1.Namemain,idr)">
                             </div>
                         </div>
+
+
+
                     </div>
-                </div>
+                </form>
             </div>
-        </section>
+        </div>
     </div>
+    
 
-    <!-- <h1>eor</h1>
-    <form class="form-horizontal"  (submit)="Scraping()" name="frm"  >   
-         <div  name="ddd" class="ggg" *ngFor="let item of list">
-        <div>
-            <label>{{item.Namemain}}</label>
-        </div>
-        <div>
-            <label>{{item.Sub_name}}</label>
-        </div>
-        <div *ngFor="let i of item.material" >
-            <h4 id="{{i}}">{{i}}</h4>
-           
 
-               
-                <input matInput placeholder="enter discription" (focusout)="save($event,item.Sub_name,item.Namemain,i)" id="{{i}}">
-        
-        </div>
+    <app-resulte [listresultes]="listToScrap" [listMainMaterial]="listMainMaterial"></app-resulte>
 
+
+<section id="team" class="section-padding text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title-header text-center">
+            <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">Last Recipes You Searched For</h1>
+            <i class="fab fa-accessible-icon"></i>
+            <p class="wow fadeInDown" data-wow-delay="0.2s">Save Your Time And Peek Your Recipe</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let item1 of list">
+          <!-- Team Item Starts -->
+          <div class="team-item wow fadeInUp" data-wow-delay="0.2s">
+            <div class="team-img">
+              <img class="img-fluid" src="../../../assets/backgroundImages/white.jpg" style="width: 310px; height: 310px;" alt="">
+              <div class="team-overlay">
+                <div class="overlay-social-icon text-center">
+                  <!-- <ul class="social-icons">
+                    <li><a (click)="open(mymodal, lastRecipe)"><i class="lni-zoom-in" aria-hidden="true"></i></a></li>
+                  </ul> -->
+                  <div *ngFor="let idr of item1.material">
+                    <p style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
+                        {{idr}}</p>
+                    <input type="text" matinput="" placeholder="enter discription"
+                        (change)="save($event,item1.Sub_name,item1.Namemain,idr)">
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="info-text">
+                 <strong style="font-size: 20px; color: indianred;" class="wow fadeInDown"
+                                data-wow-delay="0.4s">
+                                {{item1.Namemain}}</strong>
+                            <br />
+                            <strong style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
+                                {{item1.Sub_name}}</strong>
+                            <br />
+              <!-- <h3><a (click)="open(mymodal, lastRecipe)" style="width: 650px">{{lastRecipe.RecipeName}}</a></h3> -->
+            </div>
+          </div>
+          <!-- Team Item Ends -->
+        </div>
+      </div>
     </div>
-    <button (click)="sreach()">הצג תוצאות חיפוש</button>
-</form> -->
-    <app-resulte  [listresultes]="listToScrap"></app-resulte>
+  </section>
 </body>
+
+</html>
