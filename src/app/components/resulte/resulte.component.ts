@@ -29,6 +29,7 @@ listMaterials:material[]=[]
 ListScrapedMaterials:any[]=[]
 filter:filterparmeter;
 listfilter:filterparmeter[]=[]
+bou:boolean=true;
   ngOnInit(): void {
   }
   listMaterial:material[]=[]
@@ -68,7 +69,7 @@ listfilter:filterparmeter[]=[]
   }
   SendToScrap()
   {
-    
+    this.bou=false;
 this.stop=true;
 debugger
     let listSort=this.listresultes.sort((a,b)=> a.Namemain.localeCompare(b.Namemain))
@@ -119,15 +120,24 @@ debugger
     debugger
     this.MaterialSevice.getproductCalculations(this.listfilter).subscribe(a=> {
       sessionStorage.setItem('CostMaterial',a.toString())
-    })     
-    this.MaterialSevice.getproductCalculations2(this.listMaterial).subscribe(a=> {sessionStorage.setItem('CostMaterial',a.toString())})
-
-    if(sessionStorage.getItem('WantWorker')=='yesWorker' )  
-      {
-        this.router.navigate(['/app-worker'])
+      if(a>0&&sessionStorage.getItem('WantWorker')=='yesWorker'){
+        this.GoWorker();
       }
-    
-          }
-  
+    })     
+    this.MaterialSevice.getproductCalculations2(this.listMaterial).subscribe(a=> {
+      sessionStorage.setItem('CostMaterial',a.toString())
+      if(a>0&&sessionStorage.getItem('WantWorker')=='yesWorker'){
+        this.GoWorker();
+      }
+    })
 
+    
+    
+   }
+  
+GoWorker()
+{
+  this.router.navigate(['/app-worker'])
+
+}
 }

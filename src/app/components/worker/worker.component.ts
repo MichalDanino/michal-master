@@ -19,7 +19,7 @@ costWorker:number=0
  listfeed:string[]=["dfgfdfghnbvcf","ffghfdghnhgbfvdcfh","fgfdgfhgjnfbfvdffg","sdgfgfhgnbfvdcfgfg"] 
 ngOnInit(): void {
   let i = sessionStorage.getItem('IDUser')
-  while(sessionStorage.getItem('CostMaterial')==null||sessionStorage.getItem('CostMaterial')=="0"){}
+  debugger
   this.WorkerService.GetEmbedWorker(i).subscribe(a=>
     {
         this.ListWorkers=a;

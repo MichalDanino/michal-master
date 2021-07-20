@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import {FormsModule} from '@angular/forms'
 import { Area } from '../models/Area.model';
 import { artical } from '../models/Artical.model';
+import { SelectionUser } from '../models/selectionUser.model';
+import { SearchOfSelectionUser } from '../models/SearchOfSelectionUser.model';
+import { feedbake } from '../models/FeedBake.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,18 @@ export class MainService {
     return this.https.get<Area[]>(`${this.Url}/getnamearea`)
 
   }
- 
+ GetDateOfSelection(id:string):Observable<SelectionUser[]>
+ {
+  return this.https.get<SelectionUser[]>(`${this.Url}/getaDate/${id}`)
+ }
+ GetSelectionUsern(code:string):Observable<SearchOfSelectionUser[]>
+ {
+  return this.https.get<SearchOfSelectionUser[]>(`${this.Url}/getaSearchOfSelectionUser/${code}`)
+ }
+ SentTOlERNING(LIST:feedbake):Observable<number>
+ {
+  return this.https.post<number>(`${this.Url}/lerning`,LIST)
+ }
  
 
 }

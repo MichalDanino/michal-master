@@ -1,6 +1,6 @@
 <body>
 
-    <button class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" (click)="SendToScrap()">הצג תוצאות חיפוש</button>
+    <button class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" (click)="SendToScrap()"*ngIf="bou==true">הצג תוצאות חיפוש</button>
     <br/>
     <br/>
     <br/>
@@ -46,6 +46,7 @@
             </div>
         </div>
     </div>
+    <button (click)="GO()" >אישור</button>
 </div>
     <div class="load"  *ngIf="stop == true">
         <div class="paint">
@@ -57,5 +58,5 @@
           <div class="roller-handle"></div>
         </div>
       </div>
-<button (click)="GO()" >אישור</button>
+
 </body>

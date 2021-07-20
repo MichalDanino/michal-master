@@ -9,60 +9,83 @@
 </head>
  
 <body>
+   
+    
     <div *ngIf="!childWorks()">
-        <div class="col-xs-12 col-md-6 col-lg-4" *ngFor="let item1 of list" style="display: flex;flex-direction: row;">
-            <div class="about-item">
-                <form class="form-horizontal" name="frm">
-                    <div style="text-align: right; float: right;" class="row">
-
-
-
-                        <div style="text-align: right;" class="form-group">
-                            <strong style="font-size: 20px; color: indianred;" class="wow fadeInDown"
-                                data-wow-delay="0.4s">
-                                {{item1.Namemain}}</strong>
-                            <br />
-                            <strong style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
-                                {{item1.Sub_name}}</strong>
-                            <br />
-                            <div>
-                                <input (change)="save($event,item1.Sub_name,item1.Namemain,1)">
-                                <br />
-                                <p *ngIf="item1.Sub_name==Floor" style="color: red;">:הכנס את סוג שיפוץ
-                                    הריצוף שהינך רוצה לעשות</p>
-
-                                <input type="text" placeholder="הדבקה/חדש/פירוק" (change)="SaveKingReno($event)"
-                                    *ngIf="item1.Sub_name==Floor" name="df" id="{{item1.Sub_name}}">
-                            </div><br />
-                            <div *ngFor="let idr of item1.material">
-                                <p style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
-                                    {{idr}}</p>
-                                <input type="text" matinput="" placeholder="enter discription"
-                                    (change)="save($event,item1.Sub_name,item1.Namemain,idr)">
-                            </div>
-                        </div>
-
-
-
+        <section  id="team" class="section-padding text-center">
+        <div class="container">
+            
+            <div class="row">
+                
+                    <div class="col-12">
+                      <div class="section-title-header text-center">
+                        <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s" style="margin-left: 50%;">חומרים לבנים</h1>
+                        <i class="fab fa-accessible-icon"></i>
+                        <p class="wow fadeInDown" data-wow-delay="0.2s">חומרים לבנים</p>
+                        <h5>אנא הכנס תיאור של המוצרים</h5>
+                      </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                  
+                <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let item1 of list">
+                  <!-- Team Item Starts -->
+                  <div class="team-item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-img">
+                      <img class="img-fluid" src="../../../assets/backgroundImages/white.jpg" style="width: 310px; height: 310px;" alt="">
+                      <div class="team-overlay">
+                        <div class="overlay-social-icon text-center">
+                          <!-- <ul class="social-icons">
+                            <li><a (click)="open(mymodal, lastRecipe)"><i class="lni-zoom-in" aria-hidden="true"></i></a></li>
+                          </ul> -->
+                          <p>הכנס תיאור של החומר הלבן:</p>
+                          <div>
+                            <input (change)="save($event,item1.Sub_name,item1.Namemain,1)">
+                            <br />
+                            <p *ngIf="item1.Sub_name==Floor" style="color: red;">:הכנס את סוג שיפוץ
+                                הריצוף שהינך רוצה לעשות</p>
+
+                            <input type="text" placeholder="הדבקה/חדש/פירוק" (change)="SaveKingReno($event)"
+                                *ngIf="item1.Sub_name==Floor" name="df" id="{{item1.Sub_name}}">
+                        </div><br />
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="info-text">
+                         <strong style="font-size: 20px; color: indianred;" class="wow fadeInDown"
+                                        data-wow-delay="0.4s">
+                                        {{item1.Namemain}}</strong>
+                                    <br />
+                                    <strong style="font-size: 20px;" class="wow fadeInDown" data-wow-delay="0.4s">
+                                        {{item1.Sub_name}}</strong>
+                                    <br />
+                      <!-- <h3><a (click)="open(mymodal, lastRecipe)" style="width: 650px">{{lastRecipe.RecipeName}}</a></h3> -->
+                    </div>
+                  </div>
+                  <!-- Team Item Ends -->
+                </div>
+              </div>
+
+                        
+
+
+
+         
+        </div></section>
+    
     
 
 
-    <app-resulte [listresultes]="listToScrap" [listMainMaterial]="listMainMaterial"></app-resulte>
+   
 
 
-<section id="team" class="section-padding text-center">
+<section id="team" class="section-padding text-center" *ngIf="Pup==false">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="section-title-header text-center">
-            <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">Last Recipes You Searched For</h1>
+            <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">חומרים שחורים</h1>
             <i class="fab fa-accessible-icon"></i>
-            <p class="wow fadeInDown" data-wow-delay="0.2s">Save Your Time And Peek Your Recipe</p>
+            <p class="wow fadeInDown" data-wow-delay="0.2s">אנא הכנס תיאור המוצרים</p>
           </div>
         </div>
       </div>
@@ -105,6 +128,20 @@
       </div>
     </div>
   </section>
+</div>
+<div *ngIf="Pup==true" class="pupUp">
+    <div class="pp" >
+       <p>האתר כרגע מציג לך את המוצרים הנצרכים לשיפוץ זה</p>
+       <br/>
+        <p>אנא הכנס את התיאור של המוצרים</p>
+        <p>מוצר שלא יוכנס לו תיאור לא יוצגו לו תוצאות</p>
+        <p>לדוג'</p>
+        <img src="../../../assets/Images/disc.png">
+      <br/>
+        <a (click)="PupUPfalse()" class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30">אישור</a>
+    </div>
+</div>
 </body>
+<app-resulte [listresultes]="listToScrap" [listMainMaterial]="listMainMaterial"></app-resulte>
 
 </html>

@@ -28,6 +28,7 @@ export class ScrapingComponent implements OnInit {
   material:m;
   KindeFloor:string=""
   fater=true;
+  Pup:boolean=true;
   public searchStr: string = "";
   listmaterial = new Array<material>();
   listOfNameMat:string[]=[];
@@ -130,6 +131,11 @@ SaveKingReno(event:any)
      
      console.log(a.description)
     })
+}
+PupUPfalse()
+{
+  debugger
+  this.Pup=false
 }
 
 

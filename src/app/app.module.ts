@@ -30,6 +30,7 @@ import { ScrapingComponent } from './components/scraping/scraping.component';
 import { ResulteComponent } from './components/resulte/resulte.component';
 import { PreviousChoicesComponent } from './components/previous-choices/previous-choices.component';
 import { ConclusionComponent } from './components/conclusion/conclusion.component';
+import { FeedBakeComponent } from './components/feed-bake/feed-bake.component';
 
 //import {DataViewModule} from 'primeng/dataview';
 
@@ -52,7 +53,8 @@ import { ConclusionComponent } from './components/conclusion/conclusion.componen
     ScrapingComponent,
     ResulteComponent,
     PreviousChoicesComponent,
-    ConclusionComponent
+    ConclusionComponent,
+    FeedBakeComponent
     ],
   imports: [
     BrowserModule,

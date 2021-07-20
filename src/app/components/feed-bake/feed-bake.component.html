@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<style>
+    #grad1 {
+        height: 18px;
+        background-image: linear-gradient(to top, rgba(0, 102, 255, 0), rgb(0, 110, 255));
+    }
+</style>
+
+<body >
+
+    <br><br><br>
+    <div class="registerWorker" >
+    <section id="contact-map" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+               
+                <div class="col-lg-7 col-md-12 col-xs-12">
+                    <div class="container-form wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="form-wrapper">
+
+                            <form class="form-horizontal"   name="frm">
+                                <div class="row"> 
+                                     <!--Date-->
+                                    <div class="col-md-12 form-line">
+                                       <div class="form-group">
+                                        <select >
+                                            <option *ngFor="let date of listDate" #myData (change)="getSearchOfSelectionUser()">{{date.DateSelection}}</option>
+                                        </select>
+                                       </div>
+                                   </div>
+                                    <!--name-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <p>בעל מקצוע שנתן שרות:</p>
+                                            <select >
+                                                <input type="checkbox">
+                                                <option *ngFor="let worker of listSElectionUser" >{{worker.idWorker}}</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!--CostReno-->
+                                    <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <p>כמה עלה השיפוץ?</p>
+                                            <input type="text" class="form-control"  [(ngModel)]="feedbake.FinalCostRenovation" 
+                                              name="email"  placeholder="Email" >
+                                           
+                                        </div>
+                                    </div>
+                                   
+                                     <!--time-->
+                                     <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <p>כמה זמן זה לקח?</p>
+                                            <input type="text" class="form-control" id="city" [(ngModel)]="feedbake.FinalTimeRenovation"
+                                                name="city"  >
+                                        </div>
+                                    </div>
+                                     <!--pon-->
+                                     <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <p>כמה נקודות?</p>
+                                            <input type="number" class="form-control" id="Pon" [(ngModel)]="feedbake.Rating"
+                                                name="pon" 
+                                               >
+                                            
+                                        </div>
+                                    </div>
+                                     <!--FeedbakeOnWorker-->
+                                     <div class="col-md-12 form-line">
+                                        <div class="form-group">
+                                            <input type="text" style="min-height: 20px;" class="form-control" id="Professional_license" [(ngModel)]="feedbake.FeedbakeOnWorker"
+                                                name="Professional_license" >
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+
+                                
+
+                                   
+                                <button class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" (click)="SendToLerning()">הצג תוצאות חיפוש</button>
+
+                                
+                                   
+
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div *ngIf="Pup==true" class="pupUp">
+        <div class="pp">
+            <label>האם אתה רוצה להכניס על עוד פועל?</label>
+           
+            <a (click)="yes()">כן</a>
+            <a [routerLink]="['/home']">לא</a>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
